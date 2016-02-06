@@ -11,6 +11,14 @@ end
 
 module Bowerrr
   class Application < Rails::Application
+
+    config.assets.initialize_on_precompile = false
+    config.assets.precompile = [ Proc.new{ |path| !File.extname(path).in?(['.js', '.css', '.map', '.gzip', ''] ) }, /(?:\/|\\|\A)application\.(css|js)$/ ]
+
+    root.join('app', 'assets', 'javascripts', 'vendor').to_s.tap do |bower_path|
+      config.assets.paths << bower_path
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

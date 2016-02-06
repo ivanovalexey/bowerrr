@@ -1,0 +1,26 @@
+.page-header
+  %h1.clearfix
+    .pull-right
+      %a.btn.btn-default{'href' => '/'}
+        = fa_icon 'home'
+        Back to main page
+
+.page-content
+  .panel.panel-default
+    .panel-heading Users
+    .panel-body
+      %div{'ng-if' => 'users.length'}
+        %table.table.table-hover
+          %thead
+            %tr
+              %th #
+              %th Name
+              %th Birth date
+          %tbody
+            %tr{'ng-repeat' => 'user in users'}
+              %td {{ user.id }}
+              %td {{ user.name }}
+              %td {{ user.birth_date | dateFormat }}
+
+      %div{'ng-if' => '!users.length'}
+        %blockquote No users

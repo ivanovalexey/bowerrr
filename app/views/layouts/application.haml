@@ -1,0 +1,10 @@
+%html{'ng-app' => 'app'}
+  %head
+    %base{href: '/'}
+    = stylesheet_link_tag 'app', media: 'all'
+
+  %body
+    .container
+      %div{'ng-view' => ''}
+
+    = javascript_include_tag 'application'

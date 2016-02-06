@@ -13,3 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+/app/assets/javascripts/vendor/
+npm-debug.log
+
+node_modules/
